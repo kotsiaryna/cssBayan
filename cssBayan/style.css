@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.5s ease-in;
  }
 
  header {
@@ -10,9 +11,10 @@
  
  }
  h1 {
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
-  text-align: center;
+  padding: 0 0.5em;
+  text-align: left;
  }
 
 .container {
@@ -32,25 +34,17 @@
   background-size: contain;
 }
 
-.item:first-child .item__img {
-  display: block;
-}
-.item:first-child .item__icon {
-  background-image: url('./assets/icons/up.png');
-}
-
-
 .item:hover > .item__img {
-  display: block;
+  width: 40%;
 }
 .item:hover  .item__icon {
   background-image: url('./assets/icons/up.png');
 }
 
-.item:active .item__inner {
-  background-color: aqua;
+.item:active .item__img {
+  transition: all 0.2s;
+  opacity: 0.5;
 }
-
 .item {
   display: flex;
   flex-direction: column;
@@ -58,7 +52,22 @@
   align-items: center;
   padding: 0.5em 1em;
   border-bottom: 0.5px solid black;
+  transition: all 1s;
 }
+
+.item:hover {
+  cursor: pointer;
+}
+input {
+  appearance: none;
+}
+input:checked ~ .item__img {
+ width: 40%;
+}
+input:checked ~ .item__inner .item__icon {
+  background-image: url('./assets/icons/up.png');
+}
+
 
 .item__inner {
   width: 100%;
@@ -85,10 +94,8 @@
 
 
 .item__img {
-  width: 40%;
-  display: none;
-
-}
+  width: 0;
+ }
 
 
  .footer__icon {
