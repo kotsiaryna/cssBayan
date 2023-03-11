@@ -29,19 +29,25 @@
 .container:hover {
   cursor: pointer;
 }
-/* arrows appear on container hover */
-.container:hover .item__icon {
-  height: 2em;
-  transition: 0.3s ease-in-out;
-}
 
-.item:hover > .item__img {
-  width: 40%;
-}
-.item:hover  .item__icon {
-  background-image: url('./assets/icons/up.png');
-}
 
+/* hover effects only if supported */
+@media (hover:hover) {
+  /* arrows appear on container hover */
+  .container:hover .item__icon {
+    height: 2em;
+    transition: 0.3s ease-in-out;
+  }
+  /* mem image appears on line hover */
+  .item:hover > .item__img {
+    width: 40%;
+  }
+  /* icon changes on line hover */
+  .item:hover  .item__icon {
+    background-image: url('./assets/icons/up.png');
+  }
+}
+/* effects on mouse-down */
 .item:active .item__img {
   transition: all 0.2s;
   opacity: 0.5;
@@ -62,13 +68,13 @@
 input {
   appearance: none;
 }
+/* selected item */
 input:checked ~ .item__img {
  width: 40%;
 }
 input:checked ~ .item__inner .item__icon {
   background-image: url('./assets/icons/up.png');
 }
-
 
 .item__inner {
   width: 100%;
@@ -84,7 +90,6 @@ input:checked ~ .item__inner .item__icon {
   line-height: 2em;
 }
 
-
 .item__icon {
  width: 2em;
  height: 0;
@@ -93,8 +98,6 @@ input:checked ~ .item__inner .item__icon {
  background-size: contain;
  transition: all 0.5s;
 }
-
-
 
 .item__img {
   width: 0;
